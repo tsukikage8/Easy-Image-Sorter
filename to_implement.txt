@@ -1,0 +1,24 @@
+# THIS FILE LISTS CURRENT IDEAS/THINGS THAT NEED IMPLEMENTATION
+
+IMAGE DISPLAY
+1. Simple display first image of the queue
+2. Change to next image in the queue after button press
+3. Change to next image in the queue after button press or keyboard shortcut
+
+BUTTONS FOR SORTING
+1. Simple buttons that can display text
+2. Simple buttons that can sort into pre-defined subdirectories
+3. Simple buttons that work with keyboard shortcuts/input
+4. Complex buttons that dynamically display text based on user-chosen subdirectories, auto-assign keyboard shortcuts
+    and display assigned keyboard shortcut numbers
+
+BASIC INTERFACE ELEMENTS AND BUTTONS
+1. Welcome screen
+2. Main menu screen
+3. Button for exiting the app
+4. Button for returning to main menu
+5. Button for undoing previous change
+
+LATER FEATURES
+1. Button to create subdirectory by inserting text into a text box, rather than doing it through the file explorer
+    during the choose-subdirectories stage

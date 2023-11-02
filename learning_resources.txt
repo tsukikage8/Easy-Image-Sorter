@@ -1,0 +1,17 @@
+# THIS FILE LISTS HELPFUL LEARNING RESOURCES
+
+printing a list to a text widget (for testing)
+https://www.tutorialspoint.com/printing-a-list-to-a-tkinter-text-widget
+
+python queue class documentation
+TODO: update current queue class based on this documentation? i don't think i implemented it correctly
+https://docs.python.org/3/library/queue.html
+
+basic image viewer app in tkinter, to help with some of the basic view functionality
+https://www.geeksforgeeks.org/image-viewer-app-in-python-using-tkinter/?ref=lbp
+
+tkinter documentation
+https://docs.python.org/3/library/tk.html
+
+PILLOW module documentation
+https://pillow.readthedocs.io/en/stable/
