@@ -1,0 +1,5 @@
+# THIS FILE LISTS CURRENT ISSUES
+
+1. Forward button seems to be functioning properly, but it only actually shows the next image when I use the
+    debugger. If I run it through the terminal, the buttons move to the right place like the image is the size it
+    should be, but it shows no image. If I run with debugger, the image will show.
