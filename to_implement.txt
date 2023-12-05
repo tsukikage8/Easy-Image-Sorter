@@ -1,14 +1,14 @@
 # THIS FILE LISTS CURRENT IDEAS/THINGS THAT NEED IMPLEMENTATION
 
 IMAGE DISPLAY
-1. Simple display first image of the queue
-2. Change to next image in the queue after button press
-3. Change to next image in the queue after button press or keyboard shortcut
+1. Simple display first image of the queue - COMPLETE
+2. Change to next image in the list after button press - COMPLETE
+3. Change to next image in the queue after button press or keyboard shortcut - COMPLETE
 
 BUTTONS FOR SORTING
-1. Simple buttons that can display text
-2. Simple buttons that can sort into pre-defined subdirectories
-3. Simple buttons that work with keyboard shortcuts/input
+1. Simple buttons that can display text - COMPLETE
+2. Simple buttons that can sort into pre-defined subdirectories - COMPLETE
+3. Simple buttons that work with keyboard shortcuts/input - COMPLETE
 4. Complex buttons that dynamically display text based on user-chosen subdirectories, auto-assign keyboard shortcuts
     and display assigned keyboard shortcut numbers
 
@@ -20,5 +20,5 @@ BASIC INTERFACE ELEMENTS AND BUTTONS
 5. Button for undoing previous change
 
 LATER FEATURES
-1. Button to create subdirectory by inserting text into a text box, rather than doing it through the file explorer
-    during the choose-subdirectories stage
+1. Button to create a new subdirectory; most likely via user input in a text box, to save from needing to do it
+    through the file explorer popup

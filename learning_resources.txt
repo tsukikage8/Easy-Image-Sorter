@@ -15,3 +15,6 @@ https://docs.python.org/3/library/tk.html
 
 PILLOW module documentation
 https://pillow.readthedocs.io/en/stable/
+
+create .exe from python using pyinstaller
+https://datatofish.com/executable-pyinstaller/
