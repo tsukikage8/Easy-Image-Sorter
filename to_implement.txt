@@ -11,6 +11,7 @@ BUTTONS FOR SORTING
 3. Simple buttons that work with keyboard shortcuts/input - COMPLETE
 4. Complex buttons that dynamically display text based on user-chosen subdirectories, auto-assign keyboard shortcuts
     and display assigned keyboard shortcut numbers
+5. Delete button that will move the current image to the trash
 
 BASIC INTERFACE ELEMENTS AND BUTTONS
 1. Welcome screen
