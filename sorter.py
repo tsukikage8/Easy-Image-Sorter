@@ -2,6 +2,7 @@ import os
 import tkinter as tk
 from tkinter import filedialog
 from PIL import Image, ImageTk
+from send2trash import send2trash
 
 
 class ImageSorterApp:
@@ -91,9 +92,9 @@ class ImageSorterApp:
         self.image_label = tk.Label(self.master)
         self.image_label.pack(expand=True)
 
-        # anchor buttons at the bottom of the window using a frame
+        # store sort buttons together
         self.button_frame = tk.Frame(self.master)
-        self.button_frame.pack(side=tk.BOTTOM, pady=(0, 20))
+        self.button_frame.pack(pady=(0, 20))
 
         # create buttons for sorting folders
         for i in range(int(self.amount_of_folders_chosen)):
@@ -104,22 +105,20 @@ class ImageSorterApp:
             btn.pack(side=tk.LEFT)  # TODO double check how this displays
             self.master.bind(str(i+1), lambda event, idx=i: self.move_image(idx))  # bind keys
 
+        # anchor trash, skip, and home buttons at the bottom
+        self.command_frame = tk.Frame(self.master)
+        self.command_frame.pack(side=tk.BOTTOM, pady=(5, 10))
+
         # create skip button
-        self.skip_button = tk.Button(self.button_frame, text="SKIP (=)", command=self.next_image)
+        self.skip_button = tk.Button(self.command_frame, text="SKIP (=)", command=self.next_image)
         self.skip_button.pack(side=tk.LEFT)  # TODO double check how this displays
         self.master.bind("=", lambda event: self.next_image())
 
-        # TODO add select folders button
+        self.trash_button = tk.Button(self.command_frame, text="TRASH (x)", command=self.move_to_trash)
+        self.trash_button.pack(side=tk.BOTTOM, padx=5)
+        self.master.bind("x", lambda event: self.move_to_trash())
 
-        # TODO create delete button
-        # def move_to_trash(self):
-        #         """moves the current image to the trash"""
-        #         if self.current_index < len(self.image_list):
-        #             current_image_path = os.path.join(self.main_folder, self.image_list[self.current_index])
-        #             send2trash(current_image_path)
-        #             self.next_image()
-        # from send2trash import send2trash
-        # pip install send2trash
+        # TODO add select folders button
 
         self.load_image()
 
@@ -168,6 +167,14 @@ class ImageSorterApp:
         """moves to the next image in the list"""
         self.current_index += 1
         self.load_image()
+
+    def move_to_trash(self):
+        """moves the current image to the trash"""
+        if self.current_index < len(self.image_list):
+            current_image_path = os.path.join(self.main_folder, self.image_list[self.current_index])
+            current_image_path = current_image_path.replace("/", "\\")
+            send2trash(current_image_path)
+            self.next_image()
 
 
 if __name__ == "__main__":
