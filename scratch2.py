@@ -41,33 +41,50 @@ class ImageSorterApp:
         self.welcome_label2.pack(pady=(0, 20))
 
         # display main folder button
-        self.main_folder_button = tk.Button(text="Select folder", command=self.select_folders)
+        self.main_folder_button = tk.Button(text="Select folder", command=self.select_main)
         self.main_folder_button.pack(pady=(0, 10))
 
-    def select_folders(self):
-        """selects start folder and sorting folders, and loads/displays first image"""
-        # select start folder
-        self.main_folder = filedialog.askdirectory(title="Select start folder")
-
-        # clear labels from the page
-        self.start_label.pack_forget()
-        self.welcome_label2.pack_forget()
-        self.main_folder_button.pack_forget()
-
-        # select number of sub-folders
+    def create_display(self):
+        """selects buttons for sort folders and builds the display for images"""
         self.how_many = tk.Label(self.master, text="How many sorting folders will you need?")
         self.how_many.pack()
         self.amount_of_folders = tk.Entry(self.master)
         self.amount_of_folders.pack()
-        self.submit = tk.Button(self.master, text="Select folders", command=self.get_input)
+        self.submit = tk.Button(self.master, text="Select folders", command=self.select_sub)
         self.submit.pack()
 
-        # TODO maybe i need to move the below to a new function?
+    def select_main(self):
+        """selects the main starting folder"""
+        self.main_folder = filedialog.askdirectory(title="Select start folder")
+        self.start_label.pack_forget()
+        self.welcome_label2.pack_forget()
+        self.main_folder_button.pack_forget()
 
-        # select sub-folders
-        # self.sort_folders_button = tk.Button(text="Select sort folders")
-        for i in range(self.amount_of_folders_chosen):
-            self.sort_folders[i] = filedialog.askdirectory(title=f"Select folder for button {i + 1}")
+        self.main_folder_label = tk.Label(self.master, text=f"You selected {self.main_folder}.")
+        self.main_folder_label.pack(side=tk.TOP, pady=(50, 0))
+        self.retry_button = tk.Button(self.master, text="RETRY", command=self.restart)
+        self.retry_button.pack()
+        self.cont_button = tk.Button(self.master, text="CONTINUE", command=self.create_display)
+        self.cont_button.pack()
+
+    def select_sub(self):
+        """selects subfolders for sorting"""
+        self.sort_folders_button = tk.Button(text="Select sort folders")
+
+    def restart(self):
+        """clears widgets and restarts home screen"""
+        self.welcome_label.pack_forget()
+        self.main_folder_label.pack_forget()
+        self.retry_button.pack_forget()
+        self.cont_button.pack_forget()
+        self.create_homepage()
+
+    #     # TODO maybe i need to move the below to a new function?
+    #
+    #     # select sub-folders
+    #     # self.sort_folders_button = tk.Button(text="Select sort folders")
+    #     for i in range(self.amount_of_folders_chosen):
+    #         self.sort_folders[i] = filedialog.askdirectory(title=f"Select folder for button {i + 1}")
 
         # self.create_list()
         # self.display_page()
