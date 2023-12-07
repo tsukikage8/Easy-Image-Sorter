@@ -70,11 +70,15 @@ class ImageSorterApp:
         self.main_folder_button.pack_forget()
 
         self.main_folder_label = tk.Label(self.master, text=f"You selected {self.main_folder}.")
+        self.main_folder_label.config(font=15)
         self.main_folder_label.pack(side=tk.TOP, pady=(50, 0))
-        self.retry_button = tk.Button(self.master, text="RETRY", command=self.restart)
-        self.retry_button.pack()
-        self.cont_button = tk.Button(self.master, text="CONTINUE", command=self.create_display)
-        self.cont_button.pack()
+
+        self.select_frame = tk.Frame(self.master)
+        self.select_frame.pack(pady=15)
+        self.cont_button = tk.Button(self.select_frame, text="CONTINUE", command=self.create_display)
+        self.cont_button.pack(side=tk.LEFT, padx=20)
+        self.retry_button = tk.Button(self.select_frame, text="RETRY", command=self.restart)
+        self.retry_button.pack(side=tk.BOTTOM)
 
     def select_sub(self):
         """selects subfolders for sorting"""
@@ -153,6 +157,7 @@ class ImageSorterApp:
             self.welcome_label.pack_forget()
             self.image_label.pack_forget()
             self.button_frame.pack_forget()
+            self.command_frame.pack_forget()
             self.create_homepage()  # TODO add a return to home button
 
     def move_image(self, folder_index):
