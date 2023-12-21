@@ -56,9 +56,9 @@ class ImageSorterApp:
         self.current_index = 0
 
         self.how_many = tk.Label(self.master, text="How many sorting folders will you need?")
-        self.how_many.pack()
+        self.how_many.pack(pady=(0, 15))
         self.amount_of_folders = tk.Entry(self.master)
-        self.amount_of_folders.pack()
+        self.amount_of_folders.pack(pady=(0, 15))
         self.submit = tk.Button(self.master, text="Select folders", command=self.select_sub)
         self.submit.pack()
 
@@ -105,8 +105,9 @@ class ImageSorterApp:
             folder_name = self.sort_folders[i]
             folder_name_start = folder_name.rindex("/")
             button_name = folder_name[(folder_name_start+1):]
-            btn = tk.Button(self.button_frame, text=f"{button_name}", command=lambda idx=i: self.move_image(idx))
-            btn.pack(side=tk.LEFT)  # TODO double check how this displays
+            btn = tk.Button(self.button_frame, text=f"{button_name} ({i+1})",
+                            command=lambda idx=i: self.move_image(idx))
+            btn.pack(side=tk.LEFT, padx=5)
             self.master.bind(str(i+1), lambda event, idx=i: self.move_image(idx))  # bind keys
 
         # anchor trash, skip, and home buttons at the bottom
@@ -115,7 +116,7 @@ class ImageSorterApp:
 
         # create skip button
         self.skip_button = tk.Button(self.command_frame, text="SKIP (=)", command=self.next_image)
-        self.skip_button.pack(side=tk.LEFT)  # TODO double check how this displays
+        self.skip_button.pack(side=tk.LEFT)
         self.master.bind("=", lambda event: self.next_image())
 
         self.trash_button = tk.Button(self.command_frame, text="TRASH (x)", command=self.move_to_trash)
@@ -158,7 +159,13 @@ class ImageSorterApp:
             self.image_label.pack_forget()
             self.button_frame.pack_forget()
             self.command_frame.pack_forget()
+            self.master.unbind_all("<Key>")
             self.create_homepage()  # TODO add a return to home button
+
+        # for i in range(int(self.amount_of_folders_chosen)):
+        #             self.master.unbind(str(i + 1))
+        #         self.master.unbind("=")
+        #         self.master.unbind("x")
 
     def move_image(self, folder_index):
         """moves the image to the specified folder based on its index in the folder list"""
